@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.innorise.testchat.ui.screen.EnterViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/chat_background">
+        <TextView
+            android:id="@+id/name"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp_30"
+            android:text="@string/test_chat"
+            android:letterSpacing="0.1"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_below="@id/name"
+            android:id="@+id/logo"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/nickname"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:hint="@string/please_enter_your_nickname"
+            android:text="@={viewModel.edittext}"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_marginTop="@dimen/dp_20"
+            android:letterSpacing="0.1"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:background="@drawable/oval"
+            android:id="@+id/enterchat"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nickname"
+            android:onClick="@{() -> viewModel.onEnterClick()}"
+            android:text="@string/go_to_chat" />
+    </RelativeLayout>
+
+</layout>
